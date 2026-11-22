@@ -1,0 +1,20 @@
+services:
+  fantasy-games:
+    container_name: fantasy-games
+    build: .
+    image: fantasy-console-games:local
+    restart: unless-stopped
+    networks:
+      - traefik2_proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fantasy-games-rtr.entrypoints=https"
+      - "traefik.http.routers.fantasy-games-rtr.rule=Host(`games.${DOMAINNAME}`)"
+      - "traefik.http.routers.fantasy-games-rtr.tls=true"
+      - "traefik.http.routers.fantasy-games-rtr.service=fantasy-games-svc"
+      - "traefik.http.services.fantasy-games-svc.loadbalancer.server.port=80"
+
+networks:
+  traefik2_proxy:
+    name: traefik2_proxy
+    external: true

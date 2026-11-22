@@ -1,0 +1,25 @@
+:root {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #222743;
+  background: #f5f6fb;
+  font-size: 16px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: #314979; }
+a:focus-visible { outline: 3px solid #dc6584; outline-offset: 3px; }
+.play-page { width: min(100% - 24px, 760px); margin: 0 auto; padding: 22px 0 38px; }
+.back-link { display: inline-block; margin-bottom: 12px; font-weight: 600; text-underline-offset: 3px; }
+h1 { margin: 0 0 16px; font-size: clamp(1.5rem, 4vw, 2rem); letter-spacing: -.04em; }
+.player { display: block; width: min(100%, 560px); aspect-ratio: 1; border: 0; background: #222; margin: 0 auto; }
+.player.wide { width: 100%; aspect-ratio: 240 / 136; background: #1a1c2c; }
+.controls { width: min(100%, 560px); margin: 20px auto 0; }
+.controls.wide { width: 100%; }
+.controls h2 { margin: 0 0 10px; font-size: 1.1rem; }
+.control-list { display: flex; flex-wrap: wrap; gap: 9px 16px; list-style: none; margin: 0; padding: 0; }
+.control-list li { line-height: 1.5; }
+kbd { display: inline-block; min-width: 24px; padding: 2px 7px; border: 1px solid #bbc3d6; border-bottom-width: 3px; border-radius: 5px; background: #fff; color: #222743; text-align: center; font: 700 .9rem ui-monospace, monospace; }
+@media (max-width: 600px) {
+  .play-page { padding-top: 16px; }
+  .player:not(.wide) { aspect-ratio: 1 / 1.12; }
+}
