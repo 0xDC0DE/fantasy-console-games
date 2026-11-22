@@ -1,6 +1,6 @@
 """Build the ColorMix cartridge and matching MustardOS artwork.
 
-Run: python3 homemade/ColorMix/build.py
+Run: python3 fantasy-console-games/ColorMix/build.py
 Only Python's standard library is required. The game uses code, one coin
 sprite, reference sound effects, and an original selection buzz; map and music stay empty.
 """

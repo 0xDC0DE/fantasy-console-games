@@ -1,6 +1,6 @@
 """Build the Dino Snacks cartridge and matching MustardOS artwork.
 
-Run: python3 homemade/DinoSnacks/build.py
+Run: python3 fantasy-console-games/DinoSnacks/build.py
 Only Python's standard library is required. The game uses original code, sprites, and sound effects; map and music stay empty.
 """
 

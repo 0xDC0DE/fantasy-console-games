@@ -12,7 +12,7 @@ import sys
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 SOURCE = HERE / "CountNumbers.p8"
-TEMPLATE = ROOT / "homemade" / "MathSplit" / "MathSplit.tic"
+TEMPLATE = ROOT / "fantasy-console-games" / "MathSplit" / "MathSplit.tic"
 OUTPUT = HERE / "CountNumbers.tic"
 sys.path.insert(0, str(HERE.parent))
 from repair_tic80_audio import repair

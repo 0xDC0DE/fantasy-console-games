@@ -1,6 +1,6 @@
 """Build the MathSplit cartridge and matching MustardOS artwork.
 
-Run: python3 homemade/MathSplit/build.py
+Run: python3 fantasy-console-games/MathSplit/build.py
 Only Python's standard library is required. The game uses code, one coin
 sprite, reference sound effects, and an original selection buzz; map and music stay empty.
 """

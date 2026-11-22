@@ -1,6 +1,6 @@
 """Build the MissingNumber cartridge and matching MustardOS artwork.
 
-Run: python3 homemade/MissingNumber/build.py
+Run: python3 fantasy-console-games/MissingNumber/build.py
 Only Python's standard library is required. Map and music stay empty.
 """
 

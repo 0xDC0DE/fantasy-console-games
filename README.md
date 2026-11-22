@@ -5,6 +5,11 @@ adventures. The [website](website/README.md) lets friends and teachers play them
 in a browser. This repository also keeps the editable cartridges, build scripts,
 artwork sources, and per-game notes.
 
+From the Gameboy folder, run `python3 fantasy-console-games/update_game.py --all`
+to rebuild cartridges, launchers, website players, downloads, and artwork.
+Each game folder has an `art.png` source. See the [Gameboy workspace README](../README.md)
+for the update and backup workflow.
+
 | Learning games | Just for fun |
 | --- | --- |
 | Color Mix, Count Numbers, Math Split, Missing Number, Shape Sum, Stringer | Dino Snacks, Dragon Fury |
@@ -54,7 +59,7 @@ cartridges, build scripts, and game-specific instructions.
   in one short line; Stringer, CountNumbers, MissingNumber, and Dino Snacks
   also show the objects or character the player will use.
 - Keep settings on the same screen. Show one meaningful choice, such as a
-  maximum number, pattern length, or dinosaur, between `<` and `>` markers.
+  maximum number, difficulty tier, or dinosaur, between `<` and `>` markers.
   Left/right changes it; `X` starts. ColorMix skips the setting and starts
   directly. There is no nested menu.
 - Put short button hints near the bottom. Use the same terms the player sees

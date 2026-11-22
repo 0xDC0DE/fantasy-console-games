@@ -21,7 +21,7 @@ automatically.
 From the Gameboy folder:
 
 ```sh
-python3 homemade/DinoSnacks/build.py
+python3 fantasy-console-games/DinoSnacks/build.py
 ```
 
 This builds `ROMS/PICO-8/DinoSnacks.p8.png` and matching 384×384 box and 120×120
@@ -45,7 +45,7 @@ Open the **source cartridge** in the PICO-8 editor:
 
 ```sh
 open -a "$HOME/Downloads/pico-8/PICO-8.app" --args \
-  "$PWD/homemade/DinoSnacks/DinoSnacks.p8"
+  "$PWD/fantasy-console-games/DinoSnacks/DinoSnacks.p8"
 ```
 
 Choose the sprite editor tab. Each dinosaur pose is a 24×24 area covering nine
@@ -71,8 +71,8 @@ editor than it does in the game.
 To import a revised version of your external PNG, run:
 
 ```sh
-python3 homemade/DinoSnacks/import_sprites.py
-python3 homemade/DinoSnacks/build.py
+python3 fantasy-console-games/DinoSnacks/import_sprites.py
+python3 fantasy-console-games/DinoSnacks/build.py
 ```
 
 The importer reads the five-row, labeled `dino-sprites-24.png` sheet plus

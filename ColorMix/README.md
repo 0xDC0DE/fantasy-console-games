@@ -25,7 +25,7 @@ that attribution and license in mind when sharing ColorMix.
 From the Gameboy folder:
 
 ```sh
-python3 homemade/ColorMix/build.py
+python3 fantasy-console-games/ColorMix/build.py
 ```
 
 This writes `ROMS/PICO-8/ColorMix.p8.png` plus matching 384×384 box and
@@ -48,13 +48,13 @@ open -a "$HOME/Downloads/pico-8/PICO-8.app" --args \
 ```
 
 To test source edits before rebuilding, change the path after `-run` to
-`$PWD/homemade/ColorMix/ColorMix.p8`. The source is marked as cartridge
+`$PWD/fantasy-console-games/ColorMix/ColorMix.p8`. The source is marked as cartridge
 version 41 for broad PICO-8 compatibility.
 
 ## TIC-80 port
 
 After converting `ColorMix.p8` to `ColorMix.tic`, run
-`python3 homemade/repair_tic80_audio.py ColorMix` from the Gameboy folder.
-This repairs the converted sound effects in this source folder. Double-click
-`homemade/launchers/Compare ColorMix.command` to open the
-PICO-8 and TIC-80 versions together.
+`python3 fantasy-console-games/repair_tic80_audio.py ColorMix` from the Gameboy folder.
+This repairs the converted sound effects in this source folder. The
+`Play ColorMix.command` launcher uses PICO-8; load `ColorMix.tic` in TIC-80
+separately to compare the port.

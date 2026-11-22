@@ -90,13 +90,13 @@ def main():
     games_dir = DESTINATION / "Games"
     games_dir.mkdir()
     for name in GAMES:
-        cartridge = ROOT / "homemade" / name / f"{name}.tic"
+        cartridge = ROOT / "fantasy-console-games" / name / f"{name}.tic"
         shutil.copy2(cartridge, games_dir / cartridge.name)
         write_executable(DESTINATION / f"Play {name}.command", game_launcher(name))
 
     write_executable(DESTINATION / "Install TIC-80.command", INSTALLER)
     (DESTINATION / "README.txt").write_text(README)
-    shutil.copy2(ROOT / "homemade/TIC80-LICENSE.txt", DESTINATION / "TIC-80-LICENSE.txt")
+    shutil.copy2(ROOT / "fantasy-console-games/TIC80-LICENSE.txt", DESTINATION / "TIC-80-LICENSE.txt")
 
     if ARCHIVE.exists():
         ARCHIVE.unlink()

@@ -15,7 +15,7 @@ and license in mind when sharing Shape Sum.
 From the Gameboy folder:
 
 ```sh
-python3 homemade/ShapeSum/build.py
+python3 fantasy-console-games/ShapeSum/build.py
 ```
 
 This writes `ROMS/PICO-8/ShapeSum.p8.png` plus matching 384×384 box and
@@ -25,7 +25,7 @@ builder needs only Python 3 and packs the editable `ShapeSum.p8` source into a
 PICO-8 cartridge image. PICO-8 itself can also export the source:
 
 ```sh
-pico8 homemade/ShapeSum/ShapeSum.p8 -export ROMS/PICO-8/ShapeSum.p8.png
+pico8 fantasy-console-games/ShapeSum/ShapeSum.p8 -export ROMS/PICO-8/ShapeSum.p8.png
 ```
 
 Use PICO-8 or the handheld's PICO-8 runtime to play-test after changing the
@@ -42,7 +42,7 @@ open -a "$HOME/Downloads/pico-8/PICO-8.app" --args \
 ```
 
 To test source edits before rebuilding, change the path after `-run` to
-`$PWD/homemade/ShapeSum/ShapeSum.p8`. The source is marked as cartridge version
+`$PWD/fantasy-console-games/ShapeSum/ShapeSum.p8`. The source is marked as cartridge version
 41 for broad PICO-8 compatibility.
 
 ## Add a sculpture
@@ -80,8 +80,8 @@ drawn behind the counted shapes.
 ## TIC-80 port
 
 After converting `ShapeSum.p8` to `ShapeSum.tic`, run
-`python3 homemade/repair_tic80_audio.py ShapeSum` from the Gameboy folder.
+`python3 fantasy-console-games/repair_tic80_audio.py ShapeSum` from the Gameboy folder.
 This repairs the converted sound effects, adds the PICO-8 `deli` helper needed
-for puzzle creation in the cartridge in this source folder. Double-click
-`homemade/launchers/Compare ShapeSum.command` to open the
-PICO-8 and TIC-80 versions together.
+for puzzle creation in the cartridge in this source folder. The
+`Play ShapeSum.command` launcher uses PICO-8; load `ShapeSum.tic` in TIC-80
+separately to compare the port.

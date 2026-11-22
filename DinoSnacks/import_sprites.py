@@ -1,6 +1,6 @@
 """Copy the user's dinosaur and food art into PICO-8 sprite frames.
 
-Run from the Gameboy folder: python3 homemade/DinoSnacks/import_sprites.py
+Run from the Gameboy folder: python3 fantasy-console-games/DinoSnacks/import_sprites.py
 This replaces only the cartridge's __gfx__ section. Keep editing the PNGs if
 you want to rerun the import; edits made in PICO-8's sprite editor afterward
 will be replaced for the dinosaur and food frames by the next import.

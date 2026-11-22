@@ -41,10 +41,12 @@ then replace `build: .` and `image:` in Compose with your registry image name.
 
 ## Refresh browser exports
 
-The source games live one directory above this site. The PICO-8 browser exports
-were made from the labeled cartridges under `../ROMS/PICO-8/` in the original
-Gameboy workspace. After changing a `.p8` source, run its `build.py` as
-described in its README, then refresh the browser export with an installed
+The source games live one directory above this site. From the Gameboy folder,
+run `python3 fantasy-console-games/update_game.py Stringer` (or use `--all`).
+It rebuilds the cartridge under `ROMS/`, refreshes browser exports and
+downloads, and copies each game's `art.png` to the website screenshots.
+
+For a manual PICO-8 browser export, use the labeled cartridge and installed
 PICO-8 CLI:
 
 ```sh
@@ -53,8 +55,7 @@ pico8 /path/to/ColorMix.p8.png -export /path/to/website/public/games/color-mix/p
 
 That writes both `index.html` and `index.js`. The labeled cartridge is needed;
 exporting an unlabeled `.p8` source may stop with “please capture a label
-first”. Update the screenshot and downloadable cartridge in `public/` too. The
-site also offers the existing `.tic` ports for Color Mix, Count Numbers,
+first”. The site also offers the existing `.tic` ports for Color Mix, Count Numbers,
 Math Split, Shape Sum, and Stringer; refresh those downloads from their game
 folders after rebuilding a port.
 

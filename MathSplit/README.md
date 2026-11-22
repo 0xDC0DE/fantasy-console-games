@@ -26,7 +26,7 @@ that attribution and license in mind when sharing MathSplit.
 From the Gameboy folder:
 
 ```sh
-python3 homemade/MathSplit/build.py
+python3 fantasy-console-games/MathSplit/build.py
 ```
 
 This writes `ROMS/PICO-8/MathSplit.p8.png` plus matching 384×384 box and
@@ -36,7 +36,7 @@ builder needs only Python 3 and packs the editable `MathSplit.p8` source into
 a PICO-8 cartridge image. PICO-8 itself can also export the source:
 
 ```sh
-pico8 homemade/MathSplit/MathSplit.p8 -export ROMS/PICO-8/MathSplit.p8.png
+pico8 fantasy-console-games/MathSplit/MathSplit.p8 -export ROMS/PICO-8/MathSplit.p8.png
 ```
 
 Use PICO-8 or the handheld's PICO-8 runtime to play-test after changing the
@@ -53,13 +53,13 @@ open -a "$HOME/Downloads/pico-8/PICO-8.app" --args \
 ```
 
 To test source edits before rebuilding, change the path after `-run` to
-`$PWD/homemade/MathSplit/MathSplit.p8`. The source is marked as cartridge
+`$PWD/fantasy-console-games/MathSplit/MathSplit.p8`. The source is marked as cartridge
 version 41 for broad PICO-8 compatibility.
 
 ## TIC-80 port
 
 After converting `MathSplit.p8` to `MathSplit.tic`, run
-`python3 homemade/repair_tic80_audio.py MathSplit` from the Gameboy folder.
-This repairs the converted sound effects in this source folder. Double-click
-`homemade/launchers/Compare MathSplit.command` to open the
-PICO-8 and TIC-80 versions together.
+`python3 fantasy-console-games/repair_tic80_audio.py MathSplit` from the Gameboy folder.
+This repairs the converted sound effects in this source folder. The
+`Play MathSplit.command` launcher uses PICO-8; load `MathSplit.tic` in TIC-80
+separately to compare the port.

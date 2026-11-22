@@ -1,6 +1,6 @@
 """Build the CountNumbers cartridge and matching MustardOS artwork.
 
-Run: python3 homemade/CountNumbers/build.py
+Run: python3 fantasy-console-games/CountNumbers/build.py
 Only Python's standard library is required. The game uses six object sprites
 and sound effects adapted from the other homemade math games.
 """

@@ -31,19 +31,19 @@ black background.
 After changing the PNGs, reimport them before rebuilding:
 
 ```sh
-python3 homemade/MissingNumber/import_unicorns.py
-python3 homemade/MissingNumber/build.py
+python3 fantasy-console-games/MissingNumber/import_unicorns.py
+python3 fantasy-console-games/MissingNumber/build.py
 ```
 
 ## Build
 
-Double-click `homemade/launchers/Play MissingNumber.command` to play the editable PICO-8
+Double-click `fantasy-console-games/launchers/Play MissingNumber.command` to play the built PICO-8
 cartridge on this Mac.
 
 From the Gameboy folder:
 
 ```sh
-python3 homemade/MissingNumber/build.py
+python3 fantasy-console-games/MissingNumber/build.py
 ```
 
 This builds `ROMS/PICO-8/MissingNumber.p8.png` and matching box and grid
@@ -52,7 +52,7 @@ it does not execute the game. Play-test in PICO-8 with:
 
 ```sh
 open -a "$HOME/Downloads/pico-8/PICO-8.app" --args \
-  -run "$PWD/homemade/MissingNumber/MissingNumber.p8"
+  -run "$PWD/fantasy-console-games/MissingNumber/MissingNumber.p8"
 ```
 
 The heart sprite and burst style come from the original DinoSnacks cartridge.

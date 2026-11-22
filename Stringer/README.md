@@ -39,7 +39,7 @@ and license in mind when sharing Stringer.
 From the Gameboy folder:
 
 ```sh
-python3 homemade/Stringer/build.py
+python3 fantasy-console-games/Stringer/build.py
 ```
 
 This writes `ROMS/PICO-8/Stringer.p8.png` and matching box and grid artwork
@@ -53,10 +53,10 @@ The converter has partial SFX support: it drops most of each note's pitch and
 plays effects continuously. `Stringer.tic` in this folder instead plays the original
 PICO-8 note sequences using short TIC-80 sounds. The pre-adjustment cartridge is
 `Stringer-before-audio.tic` in this folder. After converting the PICO-8 cart
-again, run `python3 homemade/Stringer/repair_tic_audio.py` from the Gameboy
+again, run `python3 fantasy-console-games/Stringer/repair_tic_audio.py` from the Gameboy
 folder to rebuild the TIC-80 sounds. Following play tests, it shifts the
 original note IDs up 24 semitones in TIC-80 and plays them at twice the
 first repaired version's note length. The TIC-80 award animation and pause give
 the longer correct answer, coin, and sparkle sounds room to finish.
-Double-click `homemade/launchers/Compare Stringer.command` to open the PICO-8 and TIC-80
-versions together for a listening comparison.
+The `Play Stringer.command` launcher uses the PICO-8 cartridge. To compare
+the port, load `Stringer.tic` in TIC-80 separately.

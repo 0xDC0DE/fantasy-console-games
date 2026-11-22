@@ -1,6 +1,6 @@
 """Import the five 40x64 unicorn PNGs into MissingNumber's PICO-8 sprites.
 
-Run from the Gameboy folder: python3 homemade/MissingNumber/import_unicorns.py
+Run from the Gameboy folder: python3 fantasy-console-games/MissingNumber/import_unicorns.py
 The supplied PNGs are the source of truth for these five sprite regions.
 """
 

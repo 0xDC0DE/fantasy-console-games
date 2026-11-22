@@ -141,7 +141,7 @@ def main(names):
     for name in names:
         if name not in GAMES:
             raise SystemExit(f"Unknown game: {name}")
-        folder = ROOT / "homemade" / name
+        folder = ROOT / "fantasy-console-games" / name
         cart_path = folder / f"{name}.tic"
         before = cart_path.read_bytes()
         after = repair(before, folder / f"{name}.p8")

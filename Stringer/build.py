@@ -1,6 +1,6 @@
 """Build the Stringer cartridge and matching MustardOS artwork.
 
-Run: python3 homemade/Stringer/build.py
+Run: python3 fantasy-console-games/Stringer/build.py
 Only Python's standard library is required. The game uses code, one coin
 sprite, reference sounds, and original bead and coin sounds; map and music stay empty.
 """
