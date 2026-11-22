@@ -1,16 +1,25 @@
 # Stringer
 
-A PICO-8 pattern game. Pick a pattern length of 2, 3, or 4 beads on the menu.
-Each exercise shows two repeats of a pattern made from colored outline shapes:
+A PICO-8 pattern game. Pick one of five difficulty tiers on the menu:
+
+1. AB
+2. AAB, ABB, or AABB
+3. ABC
+4. AABC, ABBC, or ABCC
+5. ABCD
+
+Each exercise chooses one pattern from the selected tier and shows two repeats
+made from colored outline shapes:
 circle, square, triangle pointing down, and triangle pointing up. A bead may
-repeat within a three- or four-bead pattern. Continue the winding string by
+repeat within a pattern. Continue the winding string by
 choosing six more beads for a two- or three-bead pattern, or eight more for a
 four-bead pattern. The last row fits six beads. The 3, 4, or 5 choices include
 every pattern bead and at least one extra bead. Choices and selector stay in
 place throughout an exercise. Each correct bead reveals more of a coin;
 completing one full pattern cycle drops that coin on the stack with a pling.
 After the final coin, a short sparkle plays before the next exercise begins.
-That takes three, two, or two earned coins, respectively.
+That takes three coins for a two-bead pattern and two coins for a three- or
+four-bead pattern.
 Wrong guesses can be retried without penalty.
 
 The coin stack routine, coin sprite, and back/error sounds come from
@@ -21,7 +30,7 @@ and license in mind when sharing Stringer.
 
 ## Controls
 
-- Menu: left/right chooses 2, 3, or 4 beads; X starts.
+- Menu: left/right chooses a difficulty tier; X starts.
 - String: left/right moves the V between bead choices; X selects; O returns to
   the menu.
 

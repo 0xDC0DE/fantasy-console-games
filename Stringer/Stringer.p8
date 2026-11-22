@@ -29,18 +29,21 @@ function contains_bead(t,bead)
  return false
 end
 
-function short_cycle(t)
- for period=1,#t-1 do
-  if #t%period==0 then
-   local same=true
-   for i=period+1,#t do
-    if t[i]!=t[(i-1)%period+1] then same=false end
-   end
-   if same then return true end
-  end
- end
- return false
-end
+patterns={
+ {"12"},
+ {"112","122","1122"},
+ {"123"},
+ {"1123","1223","1233"},
+ {"1234"}
+}
+
+pattern_labels={
+ "ab",
+ "aab / abb / aabb",
+ "abc",
+ "aabc / abbc / abcc",
+ "abcd"
+}
 
 function make_puzzle()
  local palette={11,12,13,14,15}
@@ -52,21 +55,16 @@ function make_puzzle()
  end
  shuffle(pool)
  beads={}
- local repeat_bead=level>=3 and rnd(1)<0.5
- local distinct=level
- if repeat_bead then
-  distinct=level-1
-  if level==4 and rnd(1)<0.5 then distinct=2 end
- end
+ local choices=patterns[tier]
+ local template=choices[flr(rnd(#choices))+1]
+ level=#template
  local pattern={}
- repeat
-  pattern={}
-  for i=1,distinct do add(pattern,i) end
-  while #pattern<level do
-   add(pattern,flr(rnd(distinct))+1)
-  end
-  shuffle(pattern)
- until not short_cycle(pattern)
+ local distinct=0
+ for i=1,level do
+  local index=tonum(sub(template,i,i))
+  add(pattern,index)
+  distinct=max(distinct,index)
+ end
  for i=1,distinct do
   add(beads,pool[i])
  end
@@ -99,19 +97,19 @@ end
 
 function _init()
  state="menu"
- level=2
+ tier=1
  coins=0
  last_signature=""
 end
 
 function _update60()
  if state=="menu" then
-  if btnp(0) and level>2 then
-   level-=1
+  if btnp(0) and tier>1 then
+   tier-=1
    sfx(3)
   end
-  if btnp(1) and level<4 then
-   level+=1
+  if btnp(1) and tier<5 then
+   tier+=1
    sfx(3)
   end
   if btnp(5) then
@@ -303,18 +301,21 @@ function _draw()
   center("stringer",14,6)
   center("finish the pattern",35,7)
   local preview={{1,12},{4,15},{2,14},{3,11}}
-  local left=flr(64-13*(level-1))
-  line(left-9,65,left+26*(level-1)+9,65,7)
-  for i=1,level do
-   draw_bead(preview[i],left+26*(i-1),65,8)
+  local example=patterns[tier][1]
+  local count=#example
+  local left=flr(64-13*(count-1))
+  line(left-9,65,left+26*(count-1)+9,65,7)
+  for i=1,count do
+   local index=tonum(sub(example,i,i))
+   draw_bead(preview[index],left+26*(i-1),65,8)
   end
-  center("pattern length",84,6)
-  center("< "..level.." beads >",96,10)
+  center("difficulty "..tier.."/5",84,6)
+  center("< "..pattern_labels[tier].." >",96,10)
   center("left/right:choose",107,5)
   center("x:start",116,7)
  else
   center("stringer",2,6)
-  print(level.." beads",94,2,6)
+  print("tier "..tier,94,2,6)
   draw_string()
   draw_options()
   show_treasure(coins)
