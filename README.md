@@ -1,6 +1,6 @@
 # Fantasy console games
 
-Eight homemade games for children, including six learning games and two playful
+Ten homemade games for children, including eight learning games and two playful
 adventures. The [website](website/README.md) lets friends and teachers play them
 in a browser. This repository also keeps the editable cartridges, build scripts,
 artwork sources, and per-game notes.
@@ -12,7 +12,7 @@ for the update and backup workflow.
 
 | Learning games | Just for fun |
 | --- | --- |
-| Color Mix, Count Numbers, Math Split, Missing Number, Shape Sum, Stringer | Dino Snacks, Dragon Fury |
+| Color Mix, Count Numbers, Frog Hopper, Heart Path, Math Split, Missing Number, Shape Sum, Stringer | Dino Snacks, Dragon Fury |
 
 The PICO-8 games have editable `.p8` cartridges. Dragon Fury uses TIC-80 and has
 an editable `.lua` source plus `.tic` cartridge. The `.tic` files in the other

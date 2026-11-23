@@ -17,7 +17,7 @@ GAMES = Path(__file__).resolve().parent
 ROOT = GAMES.parent
 WEB = GAMES / "website" / "public"
 FUN = {"DinoSnacks", "FireDragon"}
-KNOWN = {"ColorMix", "CountNumbers", "DinoSnacks", "FireDragon", "MathSplit", "MissingNumber", "ShapeSum", "Stringer"}
+KNOWN = {"ColorMix", "CountNumbers", "DinoSnacks", "FireDragon", "FrogHopper", "HeartPath", "MathSplit", "MissingNumber", "ShapeSum", "Stringer"}
 SPECIAL = {"FireDragon": ("Dragon Fury", "dragon-fury", "dragon_fury.tic")}
 
 
@@ -139,11 +139,15 @@ def sync_art(folder, slug, console, rom):
                 square.save(output / name, format="PNG")
 
 
-def ensure_web_page(folder, title, slug):
+def ensure_web_page(folder, title, slug, console):
     page = WEB / "games" / slug / "index.html"
     if page.is_file():
         return
     safe = escape(title)
+    wide = console == "TIC-80"
+    page_class = "play-page wide-page" if wide else "play-page"
+    player_class = "player wide" if wide else "player"
+    controls_class = "controls wide" if wide else "controls"
     page.parent.mkdir(parents=True, exist_ok=True)
     page.write_text(f'''<!doctype html>
 <html lang="en">
@@ -156,11 +160,11 @@ def ensure_web_page(folder, title, slug):
   <link rel="stylesheet" href="/assets/play.css">
 </head>
 <body>
-<main class="play-page">
+<main class="{page_class}">
   <a class="back-link" href="/">All games</a>
   <h1>{safe}</h1>
-  <iframe class="player" title="{safe} game" src="player/" allow="autoplay; fullscreen" allowfullscreen></iframe>
-  <section class="controls" aria-labelledby="controls-title">
+  <iframe class="{player_class}" title="{safe} game" src="player/" allow="autoplay; fullscreen" allowfullscreen></iframe>
+  <section class="{controls_class}" aria-labelledby="controls-title">
     <h2 id="controls-title">Keyboard controls</h2>
     <ul class="control-list">
       <li><kbd>Arrow keys</kbd> Move or choose</li>
@@ -243,7 +247,7 @@ def update(folder, title, category, launcher_only=False):
     sync_art(folder, slug, console, rom)
     if port_rom:
         sync_art(folder, slug, "TIC-80", port_rom)
-    ensure_web_page(folder, title, slug)
+    ensure_web_page(folder, title, slug, console)
     ensure_web_index(title, slug, category, downloads)
     print(f"Published {title}: {rom}, {launcher}, website, and artwork")
 

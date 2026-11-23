@@ -31,6 +31,8 @@ a { color: inherit; }
 }
 
 .game-card {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   overflow: hidden;
   border: 1px solid #e0e4ef;
@@ -53,15 +55,26 @@ a { color: inherit; }
   image-rendering: pixelated;
 }
 
-.card-content { padding: 13px 14px 15px; }
+.card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 13px 14px 15px;
+}
 .card-content h3 {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   font-size: 1.08rem;
   line-height: 1.25;
   letter-spacing: -.02em;
 }
+.card-description {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  line-height: 1.4;
+}
 .play-button {
   display: block;
+  margin-top: auto;
   padding: 8px 12px;
   border-radius: 7px;
   background: #25345e;
