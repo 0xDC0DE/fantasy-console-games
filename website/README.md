@@ -1,6 +1,6 @@
 # Little Pixel Games website
 
-Static website containing browser exports of all eight games. `public/` is the
+Static website containing browser exports of all ten games. `public/` is the
 web root; it includes the game index, gameplay screenshots, downloadable cartridges, and
 the PICO-8 and TIC-80 HTML players. The exported players are checked in so a
 Docker build does not need either fantasy console installed.
