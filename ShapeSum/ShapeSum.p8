@@ -302,9 +302,9 @@ function draw_answer()
  if wrong then
   print("try again!",43,118,8)
  else
-  print("x:check",43,118,6)
+  print("a:check",43,118,6)
  end
- print("o:menu",95,118,6)
+ print("b:menu",95,118,6)
 end
 
 function _draw()
@@ -315,7 +315,7 @@ function _draw()
   center("maximum answer",59,6)
   center("< "..levels[level].." >",75,10)
   center("left/right:choose",99,5)
-  center("x:start",113,7)
+  center("a:start",113,7)
  else
   draw_header()
   draw_legend()
@@ -323,8 +323,8 @@ function _draw()
   show_treasure(coins)
   if state=="correct" then
    print("correct! +1",43,102,10)
-   print("x:next",43,118,6)
-   print("o:menu",95,118,6)
+   print("a:next",43,118,6)
+   print("b:menu",95,118,6)
   else
    draw_answer()
   end

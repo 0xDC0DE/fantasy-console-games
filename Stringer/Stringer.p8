@@ -312,7 +312,7 @@ function _draw()
   center("difficulty "..tier.."/5",84,6)
   center("< "..pattern_labels[tier].." >",96,10)
   center("left/right:choose",107,5)
-  center("x:start",116,7)
+  center("a:start",116,7)
  else
   center("stringer",2,6)
   print("tier "..tier,94,2,6)
@@ -331,8 +331,8 @@ function _draw()
   else
    draw_coin_parts(9,40,flr((correct%level)*4/level))
   end
-  print(wrong and "try again!" or "x:pick",38,119,wrong and 8 or 6)
-  print("o:menu",98,119,6)
+  print(wrong and "try again!" or "a:pick",38,119,wrong and 8 or 6)
+  print("b:menu",98,119,6)
  end
 end
 __gfx__

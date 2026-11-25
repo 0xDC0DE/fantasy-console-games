@@ -2,7 +2,7 @@
 
 A PICO-8 color mixing game for a young player. Two circles at the top show the
 colors to combine. Three circles at the bottom offer possible results. Move the
-small V with left/right and press X to choose. The game uses the three primary
+small V with left/right and press A to choose. The game uses the three primary
 color combinations: yellow + blue = green, yellow + red = orange, and red +
 blue = purple. The top color order and answer positions change between puzzles.
 
@@ -15,10 +15,10 @@ that attribution and license in mind when sharing ColorMix.
 
 ## Controls
 
-- Menu: X starts a new game.
-- Puzzle: left/right moves the V between the three color choices; X checks;
-  O returns to the menu.
-- Correct answer: X advances to another puzzle.
+- Menu: A starts a new game.
+- Puzzle: left/right moves the V between the three color choices; A checks;
+  B returns to the menu.
+- Correct answer: A advances to another puzzle.
 
 ## Build
 

@@ -1,20 +1,20 @@
 # Heart Path
 
 A PICO-8 sequence memory game. Choose a dog, bunny, cat, or duck with
-left/right and a sequence length from two to five with up/down. Press X to play.
+left/right and a sequence length from two to five with up/down. Press A to play.
 Each level has three hearts. The field appears first, then the path is shown as
 colored arrows over the field for three seconds. Up is blue, right is red,
 down is yellow, and left is green.
 
 Use the D-pad to rebuild the sequence in the sky. The last arrow checks it
-automatically after a short beat. O removes the last arrow, or returns to the
+automatically after a short beat. B removes the last arrow, or returns to the
 menu when empty. Each direction has its own tone, heard during the sequence
 preview, when entered, and at each walking step. The dog, bunny, cat, and duck
 also have four different heart pickup sounds.
 On a correct answer, the animal walks the path to the heart. On a wrong answer,
 the same sequence appears again and the entry clears. After three hearts, a
 four-tone sound plays, then the player may choose an animal again before
-starting the next level with X. The chosen sequence length stays the same.
+starting the next level with A. The chosen sequence length stays the same.
 There is no timer or penalty.
 
 ## Build and edit

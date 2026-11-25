@@ -145,7 +145,7 @@ function _draw()
   center("maximum number",59,6)
   center("< "..levels[level].." >",75,10)
   center("left/right:choose",99,5)
-  center("x:start",113,7)
+  center("a:start",113,7)
  else
   center("mathsplit",2,6)
   print("max "..levels[level],96,2,6)
@@ -153,12 +153,12 @@ function _draw()
   show_treasure(coins)
   if state=="correct" then
    center("correct! +1",102,10)
-   print("x:next",43,118,6)
+   print("a:next",43,118,6)
   else
    center(top.." - "..given.." = ?",102,7)
-   print(wrong and "try again!" or "x:check",43,118,wrong and 8 or 6)
+   print(wrong and "try again!" or "a:check",43,118,wrong and 8 or 6)
   end
-  print("o:menu",95,118,6)
+  print("b:menu",95,118,6)
  end
 end
 __gfx__

@@ -7,9 +7,9 @@ your 24×24 pixel art from `dino-sprites-24.png`.
 
 ## Controls
 
-- Menu: left/right chooses a dinosaur; X starts.
+- Menu: left/right chooses a dinosaur; A starts.
 - Game: the D-pad moves one square at a time. Hold a direction to keep walking.
-  O returns to the dinosaur menu.
+  B returns to the dinosaur menu.
 
 The stegosaur and triceratops eat leaves. The T-rex eats steaks. The three food
 outlines at the top fill as snacks are found. A small heart rises and bursts

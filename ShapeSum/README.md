@@ -71,10 +71,10 @@ drawn behind the counted shapes.
 
 ## Controls
 
-- Menu: left/right chooses maximum answer (9, 12, 15, 20, 30); X starts.
-- Puzzle: up/down changes the answer from 0 to the selected maximum; X checks,
-  and O returns to the menu.
-- Correct answer: X advances and earns one coin. Wrong answers can be retried
+- Menu: left/right chooses maximum answer (9, 12, 15, 20, 30); A starts.
+- Puzzle: up/down changes the answer from 0 to the selected maximum; A checks,
+  and B returns to the menu.
+- Correct answer: A advances and earns one coin. Wrong answers can be retried
   without penalty.
 
 ## TIC-80 port

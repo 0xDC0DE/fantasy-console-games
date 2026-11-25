@@ -195,7 +195,7 @@ function _draw()
   center("maximum number",89,6)
   center("< "..levels[level].." >",99,10)
   center("left/right:choose",109,5)
-  center("x:start",119,7)
+  center("a:start",119,7)
  else
   spr(15,2,1)
   print(hearts,13,2,10)
@@ -214,13 +214,13 @@ function _draw()
    draw_burst()
   end
   if state=="play" then
-   print(wrong and "try again!" or "x:check",39,119,wrong and 8 or 6)
+   print(wrong and "try again!" or "a:check",39,119,wrong and 8 or 6)
   elseif state=="drop" then
    print("correct!",39,119,10)
   else
    print("rainbow!",39,119,10)
   end
-  print("o:menu",98,119,6)
+  print("b:menu",98,119,6)
  end
 end
 __gfx__

@@ -244,7 +244,7 @@ function draw_menu()
    24,24,x,50,32,32)
  end
  center("< "..names[selected].." >",93,7)
- center("x:play",113,6)
+ center("a:play",113,6)
 end
 
 function draw_ground()

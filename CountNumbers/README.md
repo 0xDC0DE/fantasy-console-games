@@ -2,7 +2,7 @@
 
 Read a large number, then press up to add one object or down to remove one.
 Objects fill a two-row counting pattern: top, bottom, then the next column.
-Press X when the count matches the number. A correct count animates the objects
+Press A when the count matches the number. A correct count animates the objects
 and starts another exercise automatically. A wrong count can be retried. After
 four incorrect checks in one exercise, outlines mark the positions to fill;
 the hint stays visible until the exercise is solved.
@@ -15,8 +15,8 @@ The burst, float, melt, and shrink celebrations each have their own sound.
 
 ## Controls
 
-- Menu: right/up chooses 9, left/down chooses 5; X starts a new game.
-- Exercise: up/right adds an object, down/left removes one; X checks; O returns
+- Menu: right/up chooses 9, left/down chooses 5; A starts a new game.
+- Exercise: up/right adds an object, down/left removes one; A checks; B returns
   to the menu.
 
 ## Build

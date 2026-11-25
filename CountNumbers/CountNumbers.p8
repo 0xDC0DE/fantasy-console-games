@@ -198,7 +198,7 @@ function _draw()
   draw_objects(maximum,maximum,preview_icon)
   center("maximum number",101,6)
   center("< "..maximum.." >",110,10)
-  center("x:start",120,7)
+  center("a:start",120,7)
  else
   center("countnumbers",2,6)
   print("max "..levels[level],99,2,6)
@@ -216,8 +216,8 @@ function _draw()
   else
    center("up/down:count",108,5)
   end
-  print(state=="celebrate" and "" or "x:check",41,119,6)
-  print("o:menu",96,119,6)
+  print(state=="celebrate" and "" or "a:check",41,119,6)
+  print("b:menu",96,119,6)
  end
 end
 __gfx__

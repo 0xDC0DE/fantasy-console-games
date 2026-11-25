@@ -379,7 +379,7 @@ end
 function d_update()
  D.scd=max(0,D.scd-DT)
  D.hf=max(0,D.hf-DT)
- d_breath(btn(4) or key(48))
+ d_breath(btn(5) or key(48))
  local horizontal=(btn(3) and 1 or 0)-(btn(2) and 1 or 0)
  local speed=horizontal<0 and 32 or horizontal>0 and 80 or 54
  D.vx=D.vx+(speed-D.vx)*min(1,5*DT)
@@ -451,22 +451,22 @@ local WOOD={fire=1.5}
 local KD={
  house={hp=30,sc=50,heal=6,bl=1,weak=WOOD},
  mill={hp=40,sc=80,heal=6,bl=1,weak=WOOD},
- church={hp=90,sc=150,heal=10,bl=1,weak=STONE,ctr="use fireballs (X)"},
- tower={hp=80,sc=120,heal=6,bl=1,weak=STONE,ctr="use fireballs (X)"},
- keep={hp=220,sc=350,heal=20,bl=1,weak={fire=.15,crush=1.6,blast=.8},ctr="use fireballs (X)",bdps=5,heavy=1},
- mage={hp=70,sc=160,heal=8,bl=1,weak={fire=.15,blast=2,crush=.6},ctr="fireball the crystal (X)",heavy=1},
+ church={hp=90,sc=150,heal=10,bl=1,weak=STONE,ctr="use fireballs (A)"},
+ tower={hp=80,sc=120,heal=6,bl=1,weak=STONE,ctr="use fireballs (A)"},
+ keep={hp=220,sc=350,heal=20,bl=1,weak={fire=.15,crush=1.6,blast=.8},ctr="use fireballs (A)",bdps=5,heavy=1},
+ mage={hp=70,sc=160,heal=8,bl=1,weak={fire=.15,blast=2,crush=.6},ctr="fireball the crystal (A)",heavy=1},
  soldier={hp=6,sc=15,r=2,bt=4,bdps=3},
  bucket={hp=6,sc=25,r=2,bt=4,bdps=3},
  ballista={hp=40,sc=70,r=3,weak=WOOD,heavy=1},
- hunter={hp=50,sc=130,r=3,weak=IRON,ctr="fireball it (X)",heavy=1},
+ hunter={hp=50,sc=130,r=3,weak=IRON,ctr="fireball it (A)",heavy=1},
  catapult={hp=50,sc=90,r=3.4,weak=WOOD,heavy=1},
- cannon={hp=45,sc=110,r=3,weak=IRON,ctr="fireball it (X)",heavy=1},
+ cannon={hp=45,sc=110,r=3,weak=IRON,ctr="fireball it (A)",heavy=1},
  eagle={hp=10,sc=30,r=2.4,air=1,heal=5},
  balloon={hp=35,sc=100,r=6,air=1,heal=5,weak={fire=2}},
  orni={hp=30,sc=130,r=4,air=1,heal=5,weak=WOOD,ws=16},
- gyro={hp=25,sc=160,r=3,air=1,heal=5,weak=ARMOUR,ctr="fireball it (X)",ws=12},
- griffin={hp=45,sc=220,r=3.4,air=1,heal=8,weak=ARMOUR,ctr="fireball it (X)",ws=16},
- airship={hp=420,sc=1000,r=12,air=1,heal=40,weak={fire=.35,blast=1.5,crush=1.8},ctr="use fireballs (X)",bdps=4,ws=50},
+ gyro={hp=25,sc=160,r=3,air=1,heal=5,weak=ARMOUR,ctr="fireball it (A)",ws=12},
+ griffin={hp=45,sc=220,r=3.4,air=1,heal=8,weak=ARMOUR,ctr="fireball it (A)",ws=16},
+ airship={hp=420,sc=1000,r=12,air=1,heal=40,weak={fire=.35,blast=1.5,crush=1.8},ctr="use fireballs (A)",bdps=4,ws=50},
 }
 for k,d in pairs(KD) do
  d.r=d.r or 2 d.heal=d.heal or 2 d.weak=d.weak or {}
@@ -1297,7 +1297,7 @@ function build_level()
  for i=0,79 do MINI[i]=gy((i+.5)/80*G.W) end
  d_reset()
  G.cam=0 G.shake=0 G.rt=0 G.ldt=0 G.rf=20 G.mq={}
- local sub="Hold Z for breath, tap X for fireballs"
+ local sub="Hold B for breath, tap A for fireballs"
  if #G.tlist>0 then local t={} for _,k in ipairs(G.tlist) do t[#t+1]=TRAITS[k] end sub=table.concat(t," + ") end
  msg("Level "..L..": let the fire fly!",4,sub)
  for _,c in ipairs(INTRO[L] or {}) do G.mq[#G.mq+1]={"New: "..c[1],3.5,c[2]} end
@@ -1339,7 +1339,7 @@ function world_update()
  if G.rain then storm() end
  if G.state=="play" then
   d_update()
-  if btnp(5) then d_fireball() end
+  if btnp(4) then d_fireball() end
  else sbreath(false) end
  for _,e in ipairs(ENT) do if e.alive then UPD[e.k](e) end end
  local keep={} for _,e in ipairs(ENT) do if e.alive then keep[#keep+1]=e end end ENT=keep
@@ -1394,11 +1394,11 @@ function title()
  ot("DRAGON FURY",(SW-w)//2,22,13,false,2)
  print("DRAGON FURY",(SW-w)//2,21,14,false,2)
  cprint("THE DRAGON FLIES AND AIMS",48,15,true)
- cprint("Z  HOLD FOR FIRE BREATH",65,14,true)
- cprint("X  TAP FOR FIREBALLS",77,14,true)
+ cprint("B  HOLD FOR FIRE BREATH",65,14,true)
+ cprint("A  TAP FOR FIREBALLS",77,14,true)
  cprint("ARROWS ARE OPTIONAL",93,15,true)
  cprint("UP/DOWN: HEIGHT   LEFT/RIGHT: SPEED",103,14,true)
- if flr(G.time*2)%2==0 then cprint("PRESS Z OR X TO START",120,15,true) end
+ if flr(G.time*2)%2==0 then cprint("PRESS B OR A TO START",120,15,true) end
 end
 -- main
 function init()

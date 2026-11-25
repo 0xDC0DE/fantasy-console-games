@@ -1,7 +1,7 @@
 # Dragon Fury: automatic tour
 
-Open `dragon_fury.tic` in TIC-80. Press Z or X to begin. Hold Z to breathe fire;
-tap X to shoot fireballs. The dragon flies and aims automatically, and each pass
+Open `dragon_fury.tic` in TIC-80. Press B or A to begin. Hold B to breathe fire;
+tap A to shoot fireballs. The dragon flies and aims automatically, and each pass
 leads to a new landscape. Enemy attacks remain visual only.
 
 The arrow keys are optional. Hold left to slow down or right to speed up. Hold

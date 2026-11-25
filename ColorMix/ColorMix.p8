@@ -147,19 +147,19 @@ function _draw()
   color_circle(84,72,9,12)
   draw_plus(64,72)
   center("which color?",94,6)
-  center("x:start",113,7)
+  center("a:start",113,7)
  else
   center("color mix",2,6)
   draw_puzzle()
   show_treasure(coins)
   if state=="correct" then
    center("correct! +1",105,10)
-   print("x:next",43,118,6)
+   print("a:next",43,118,6)
   else
    center(wrong and "try again!" or "left/right:choose",105,wrong and 8 or 6)
-   print("x:check",43,118,6)
+   print("a:check",43,118,6)
   end
-  print("o:menu",95,118,6)
+  print("b:menu",95,118,6)
  end
 end
 __gfx__

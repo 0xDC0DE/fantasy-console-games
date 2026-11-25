@@ -1,7 +1,7 @@
 # Frog Hopper
 
 Help the green frog cross the pond in one of three learning modes. Move the V
-above a pebble and press X. Correct answers animate a hop with a boing sound;
+above a pebble and press A or down. Correct answers animate a hop with a boing sound;
 wrong answers play either a hurt "oww" or a surprised eye scan with little
 cricket chirps, then can be retried. Reaching the final pebble starts a
 celebration with both frogs and both fish, confetti, and sprite pictures in the
@@ -23,7 +23,7 @@ count resets after a correct hop.
 | Plus & Minus | Add or subtract the signed number in the bubble. | Shuffled numbers; each row includes both signs. |
 
 The menu shows both settings. Use up/down to select mode or difficulty,
-left/right to change it, and X to start. In the numbered modes, each row has a
+left/right to change it, and A to start. In the numbered modes, each row has a
 prepared path ending at its final rock, with other numbers as distractors.
 Some correct hops go left. Labels stay fixed until the row pans.
 
@@ -44,9 +44,9 @@ or time limit.
 ## Controls
 
 - Menu: up/down selects mode or difficulty; left/right changes the selected
-  setting; X starts the game.
-- Pond: left/right moves the V; X confirms the pebble; O returns to the menu
-  (Z on TIC-80's default keyboard).
+  setting; A starts the game.
+- Pond: left/right moves the V; A or down confirms the pebble; B returns to the menu
+  (X and Z are TIC-80's default keyboard keys for A and B).
 
 ## Build and art
 

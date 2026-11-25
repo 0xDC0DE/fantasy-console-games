@@ -60,11 +60,11 @@ cartridges, build scripts, and game-specific instructions.
   also show the objects or character the player will use.
 - Keep settings on the same screen. Show one meaningful choice, such as a
   maximum number, difficulty tier, or dinosaur, between `<` and `>` markers.
-  Left/right changes it; `X` starts. ColorMix skips the setting and starts
+  Left/right changes it; `A` starts. ColorMix skips the setting and starts
   directly. There is no nested menu.
 - Put short button hints near the bottom. Use the same terms the player sees
-  during play: `left/right:choose`, `x:start`, `x:check` or `x:pick`, and
-  `o:menu`. Keep the selected value or character visually obvious.
+  during play: `left/right:choose`, `a:start`, `a:check` or `a:pick`, and
+  `b:menu`. Keep the selected value or character visually obvious.
 
 ## Play experience
 
@@ -72,11 +72,11 @@ cartridges, build scripts, and game-specific instructions.
   progress at the top. Leave room at the bottom for feedback and button hints.
 - Use directional controls for a single action at a time: left/right selects
   among visible choices, up/down changes a number or count, and the D-pad
-  moves the dinosaur. `X` confirms; `O` returns to the menu.
+  moves the dinosaur. `A` confirms; `B` returns to the menu.
 - Give immediate, gentle feedback. Wrong answers show `try again!` and can be
   retried without penalty. Correct answers get a bright message, sound, and a
   visible reward such as a coin, heart, rainbow band, or filled food icon.
-  Some games wait for `X` to continue; CountNumbers, MissingNumber, Stringer,
+  Some games wait for `A` to continue; CountNumbers, MissingNumber, Stringer,
   and Dino Snacks move on after a short celebration.
 - Keep rounds short and repeatable. New puzzles vary the numbers, shapes,
   colors, or order while preserving the same controls. Dino Snacks has no

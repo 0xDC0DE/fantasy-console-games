@@ -216,7 +216,7 @@ def chunk(kind, payload):
 
 
 def sound_bytes():
-    """Six native TIC-80 effects with brief, tapered volume envelopes.
+    """Seven native TIC-80 effects with brief, tapered volume envelopes.
 
     Each step stores an inverted 4-bit volume beneath its waveform index.
     Leaving the wave bank empty makes TIC-80 play noise, so build_cart also
@@ -225,7 +225,7 @@ def sound_bytes():
     data = bytearray(7 * 66)
     effects = (
         (0, (3, 5, 6, 5, 3, 1)),
-        (1, (4, 7, 9, 10, 10, 9, 8, 7, 6, 5, 3, 1)),
+        (1, (5, 10, 11, 10, 8, 6, 8, 7, 5, 4, 2, 1)),
         (0, (3, 5, 7, 8, 8, 8, 7, 7, 6, 5, 4, 3, 2, 1)),
         (1, (3, 5, 7, 8, 8, 7, 7, 6, 5, 4, 3, 2, 1, 1)),
         (0, (1, 5, 7, 4, 1)),
@@ -336,7 +336,7 @@ def build_art(atlas):
     draw.text((4, 0), "MODE: COUNT HOPS", fill=c[1])
     draw.text((212, 0), "EASY", fill=c[1])
     draw.rectangle((0, 123, 239, 135), fill=c[1])
-    draw.text((24, 126), "LEFT/RIGHT:CHOOSE X:HOP O:MENU", fill=c[4])
+    draw.text((24, 126), "L/R:CHOOSE  DOWN/A:HOP  B:MENU", fill=c[4])
     im.resize((240 * scale, 136 * scale), Image.Resampling.NEAREST).save(ART)
 
 

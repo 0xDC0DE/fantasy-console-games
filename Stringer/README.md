@@ -30,8 +30,8 @@ and license in mind when sharing Stringer.
 
 ## Controls
 
-- Menu: left/right chooses a difficulty tier; X starts.
-- String: left/right moves the V between bead choices; X selects; O returns to
+- Menu: left/right chooses a difficulty tier; A starts.
+- String: left/right moves the V between bead choices; A selects; B returns to
   the menu.
 
 ## Build

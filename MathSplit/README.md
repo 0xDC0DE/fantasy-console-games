@@ -15,10 +15,10 @@ that attribution and license in mind when sharing MathSplit.
 
 ## Controls
 
-- Menu: left/right chooses the maximum number (7 or 10); X starts.
-- Puzzle: up/down changes the answer from 0 to the selected maximum; X checks,
-  and O returns to the menu.
-- Correct answer: X advances to a new puzzle. The right branch remains filled
+- Menu: left/right chooses the maximum number (7 or 10); A starts.
+- Puzzle: up/down changes the answer from 0 to the selected maximum; A checks,
+  and B returns to the menu.
+- Correct answer: A advances to a new puzzle. The right branch remains filled
   while the result is shown.
 
 ## Build

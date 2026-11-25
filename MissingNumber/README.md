@@ -15,8 +15,8 @@ order. A small heart counter keeps the total score visible.
 
 ## Controls
 
-- Menu: left/right chooses the maximum number; X starts a new game.
-- Sum: up/down changes the missing number; X checks; O returns to the menu.
+- Menu: left/right chooses the maximum number; A starts a new game.
+- Sum: up/down changes the missing number; A checks; B returns to the menu.
 
 ## Unicorn artwork
 

@@ -152,11 +152,14 @@ end
 local function frog(frame,x,bottom,flip)
  spr(frame,floor(x-12+.5),floor(bottom-24+.5),0,1,flip or 0,0,3,3)
 end
-local function sound_pick() sfx(0,65,6,0,7) end
+local function sound_pick() sfx(0,62,6,0,7) end
 local function sound_confirm() sfx(5,72,7,0,6) end
-local function sound_boing_start() sfx(1,62,12,0,9) end
-local function sound_boing_down() sfx(1,50,12,0,8) end
-local function sound_boing_land() sfx(1,57,7,1,6) end
+local function sound_boing_start() sfx(1,67,12,0,9) end
+local function sound_boing_down() sfx(1,64,12,0,8) end
+local function sound_boing_land()
+ sfx(1,60,8,1,7)
+ sfx(5,72,7,2,5)
+end
 local function sound_oww_start() sfx(3,58,12,0,8) end
 local function sound_oww_tail() sfx(3,49,14,0,8) end
 local function sound_cricket(note) sfx(4,note,5,0,6) end
@@ -405,7 +408,7 @@ local function draw_play()
  elseif G.mode=="slide" then center_text("NEW PEBBLES!",120,126,4)
  elseif G.mode=="turn" then center_text("TURNING AROUND!",120,126,4)
  elseif G.mode=="hint" then center_text("A LITTLE HELP!",120,126,4)
- else center_text("LEFT/RIGHT:CHOOSE  X:HOP  O:MENU",120,126,4) end
+ else center_text("L/R:CHOOSE  DOWN/A:HOP  B:MENU",120,126,4) end
 end
 
 local function finish_wrong()
@@ -431,18 +434,18 @@ function TIC()
    if btnp(3,18,7) then G.level=min(#LEVELS,G.level+1) end
    if G.level~=before then sound_pick() end
   end
-  if btnp(5) then sound_confirm() start_game() draw_play() return end
+  if btnp(4) then sound_confirm() start_game() draw_play() return end
   draw_menu()
   return
  end
- if btnp(4) then G.mode="menu" G.menu_focus=1 draw_menu() return end
+ if btnp(5) then G.mode="menu" G.menu_focus=1 draw_menu() return end
  if G.mode=="play" then
   if G.guide_t>0 then G.guide_t=G.guide_t-1 end
   local before=G.choice
   if btnp(2,14,5) then G.choice=max(1,G.choice-1) end
   if btnp(3,14,5) then G.choice=min(LEVELS[G.level].count,G.choice+1) end
   if G.choice~=before then sound_pick() end
-  if btnp(5) then
+  if btnp(4) or btnp(1) then
    if G.choice==G.target then
     G.from=G.at G.to=G.choice G.jump_t=0 G.mode="jump" sound_boing_start()
    else
