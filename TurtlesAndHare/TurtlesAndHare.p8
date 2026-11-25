@@ -57,8 +57,8 @@ names={"easy","medium","hard","expert"}
 difficulty_colors={3,12,2,15}
 sprite_id={g=0,b=4,r=8,y=12,p=64,h=68}
 goal_pos={g=0,h=1,p=2,r=6,b=7,y=8}
-goal_col={g=3,h=6,p=2,r=5,b=9,y=7}
-rainbow={5,6,7,3,9,2}
+goal_col={g=3,h=6,p=10,r=14,b=9,y=7}
+rainbow={14,6,7,3,9,10}
 big_font={
  a="25755",d="65556",e="74647",h="55755",i="72227",
  m="57755",p="65644",r="65655",s="74717",t="72222",
@@ -358,15 +358,15 @@ function draw_fences(mask)
 end
 
 function draw_arena(mask)
- rectfill(0,0,127,127,4)
+ rectfill(0,0,127,127,1)
  rectfill(4,4,123,123,0)
  rectfill(0,0,43,3,3)
  rectfill(0,4,3,43,3)
  rectfill(44,0,83,3,6)
- rectfill(84,0,127,3,2)
- rectfill(124,4,127,43,2)
- rectfill(0,84,3,127,5)
- rectfill(4,124,43,127,5)
+ rectfill(84,0,127,3,10)
+ rectfill(124,4,127,43,10)
+ rectfill(0,84,3,127,14)
+ rectfill(4,124,43,127,14)
  rectfill(44,124,83,127,9)
  rectfill(84,124,127,127,7)
  rectfill(124,84,127,123,7)

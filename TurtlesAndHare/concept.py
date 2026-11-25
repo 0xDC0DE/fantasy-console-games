@@ -67,14 +67,14 @@ def render(background, filename, selected=None):
     image = Image.new("RGB", (128, 128), C[background])
     d = ImageDraw.Draw(image)
 
-    # Four-pixel food sections on a brown rim. Blank sections stay brown.
-    rect(d, (0, 0, 127, 127), 4)
+    # Four-pixel food sections on a dark-blue rim.
+    rect(d, (0, 0, 127, 127), 1)
     rect(d, (EDGE, EDGE, 123, 123), background)
     food_edges = (
         (3, (0, 0, 43, 3)), (3, (0, 4, 3, 43)),       # green
         (9, (44, 0, 83, 3)),                           # orange
-        (2, (84, 0, 127, 3)), (2, (124, 4, 127, 43)), # purple
-        (8, (0, 84, 3, 127)), (8, (4, 124, 43, 127)), # red
+        (13, (84, 0, 127, 3)), (13, (124, 4, 127, 43)), # purple
+        (20, (0, 84, 3, 127)), (20, (4, 124, 43, 127)), # red
         (12, (44, 124, 83, 127)),                       # blue
         (10, (84, 124, 127, 127)),
         (10, (124, 84, 127, 123)),                     # yellow

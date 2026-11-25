@@ -54,7 +54,8 @@ The reference photo shows a **3×3 board (nine spaces)**. A four-pixel food edge
 leaves 120×120 pixels inside, or 40×40 per space. The green terrain uses PICO-8
 extended color 138 (lime). Solid sections of the four-pixel rim mark the six
 food colors: green, orange, purple, red, blue, and yellow. Rim sections without
-food stay brown.
+food stay dark blue. The purple and red food edges use the lightest shades
+from their matching turtles.
 
 The five turtles and orange hare were downsized directly from `image.png` by
 `extract_reference.py` before copying to `animals.png`. The original turtle eyes measure about 28 source pixels
