@@ -100,15 +100,6 @@ a { color: inherit; }
 }
 .downloads a:hover { color: #25345e; }
 
-.credits {
-  width: min(800px, calc(100% - 40px));
-  margin: 0 auto 25px;
-  color: #6a7188;
-  text-align: center;
-  font-size: .76rem;
-  line-height: 1.5;
-}
-
 :focus-visible { outline: 3px solid #dc6584; outline-offset: 3px; }
 
 @media (max-width: 960px) {

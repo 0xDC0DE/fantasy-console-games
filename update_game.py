@@ -167,9 +167,9 @@ def ensure_web_page(folder, title, slug, console):
   <section class="{controls_class}" aria-labelledby="controls-title">
     <h2 id="controls-title">Keyboard controls</h2>
     <ul class="control-list">
-      <li><kbd>Arrow keys</kbd> Move or choose</li>
-      <li><kbd>X</kbd> Start or confirm</li>
-      <li><kbd>C</kbd> Return to menu</li>
+      <li>Try the <kbd>arrow keys</kbd> to play.</li>
+      <li>Try <kbd>X</kbd> and <kbd>Z</kbd> for actions. On AZERTY keyboards, try <kbd>X</kbd> and <kbd>W</kbd>.</li>
+      <li><kbd>C</kbd> Return to the menu</li>
     </ul>
   </section>
 </main>
@@ -200,6 +200,43 @@ def ensure_web_index(title, slug, category, downloads):
       </article>
 '''
     index.write_text(html[:insert_at] + card + html[insert_at:])
+
+
+def version_web_assets(slug, art, rom, player, console, downloads):
+    """Change asset URLs when their content changes, avoiding stale browser caches."""
+    art_version = hashlib.sha256(art.read_bytes()).hexdigest()[:12]
+    player_file = player / ("index.js" if console == "PICO-8" else "cart.tic")
+    player_version = hashlib.sha256(player_file.read_bytes()).hexdigest()[:12]
+    index = WEB / "index.html"
+    html = index.read_text()
+    screen = rf'(src="/assets/screens/{re.escape(slug)}\.png)(?:\?v=[0-9a-f]+)?"'
+    html, count = re.subn(screen, lambda match: f'{match.group(1)}?v={art_version}"', html)
+    if count != 1:
+        raise ValueError(f"Expected one screenshot for {slug} in {index}, found {count}")
+    for file, _ in downloads:
+        digest = hashlib.sha256(file.read_bytes()).hexdigest()[:12]
+        download = rf'(href="/downloads/{re.escape(file.name)})(?:\?v=[0-9a-f]+)?"'
+        html, count = re.subn(download, lambda match: f'{match.group(1)}?v={digest}"', html)
+        if count != 1:
+            raise ValueError(f"Expected one download link for {file.name} in {index}, found {count}")
+    index.write_text(html)
+
+    page = WEB / "games" / slug / "index.html"
+    html = page.read_text()
+    html, count = re.subn(r'src="player/(?:\?v=[0-9a-f]+)?"',
+                          f'src="player/?v={player_version}"', html)
+    if count != 1:
+        raise ValueError(f"Expected one player iframe in {page}, found {count}")
+    page.write_text(html)
+
+    if console == "PICO-8":
+        exported = player / "index.html"
+        html = exported.read_text()
+        html, count = re.subn(r'e\.src = "index\.js(?:\?v=[0-9a-f]+)?";',
+                              f'e.src = "index.js?v={player_version}";', html)
+        if count != 1:
+            raise ValueError(f"Expected one PICO-8 script URL in {exported}, found {count}")
+        exported.write_text(html)
 
 
 def update(folder, title, category, launcher_only=False):
@@ -249,6 +286,7 @@ def update(folder, title, category, launcher_only=False):
         sync_art(folder, slug, "TIC-80", port_rom)
     ensure_web_page(folder, title, slug, console)
     ensure_web_index(title, slug, category, downloads)
+    version_web_assets(slug, art, rom, player, console, downloads)
     print(f"Published {title}: {rom}, {launcher}, website, and artwork")
 
 
