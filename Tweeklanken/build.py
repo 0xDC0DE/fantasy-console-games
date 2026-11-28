@@ -9,6 +9,7 @@ import re
 import struct
 import zlib
 from make_sprites import RGB as PALETTE_RGB
+from word_bank import read_list, sync_word_bank
 
 
 HERE = Path(__file__).resolve().parent
@@ -81,6 +82,17 @@ def font_glyphs():
             for name, rows in entries}
 
 
+def validate_font_coverage():
+    glyphs = font_glyphs()
+    for pattern, valid, hard in read_list():
+        prefix, suffix = pattern.split("__")
+        for pair in (*valid, *hard):
+            word = prefix + pair + suffix
+            missing = set(word) - glyphs.keys()
+            if missing:
+                raise ValueError(f"Missing font glyphs for {word!r}: {''.join(sorted(missing))}")
+
+
 def draw_text(draw, glyphs, message, x, y, color, scale=1):
     for index, char in enumerate(message):
         for row, bits in enumerate(glyphs.get(char, [0] * 7)):
@@ -97,7 +109,7 @@ def centered_text(draw, glyphs, message, y, color, scale, width):
 
 
 def label_image(data):
-    """A label showing the large lowercase nose puzzle."""
+    """A label showing the two-mode menu."""
     try:
         from PIL import Image, ImageDraw
     except ImportError:
@@ -108,55 +120,32 @@ def label_image(data):
     im = Image.new("RGBA", (WIDTH, HEIGHT), (*palette[1], 252))
     d = ImageDraw.Draw(im)
     glyphs = font_glyphs()
-    centered_text(d, glyphs, "tweeklanken", 12, palette[13], 2, WIDTH)
-    draw_text(d, glyphs, "8", 148, 14, palette[14])
-    centered_text(d, glyphs, "n__s", 41, palette[10], 3, WIDTH)
-    for band in range(8):
-        y = 143 - band * 9
-        d.rectangle((149, y, 154, y + 6), fill=palette[(8, 9, 10, 11, 12, 13, 14)[band % 7]])
-    # Show the editable nose picture at twice its game size.
-    for sy in range(32):
-        for sx in range(32):
-            gx = sx  # slot 0, first column
-            gy = sy  # first row
-            packed = data[gy * 64 + gx // 2]
-            color = (packed >> (4 * (gx % 2))) & 15
-            d.rectangle((48 + sx * 2, 59 + sy * 2,
-                         49 + sx * 2, 60 + sy * 2), fill=palette[color])
-    for x, pair in ((30, "oe"), (80, "eu"), (130, "ei")):
-        draw_text(d, glyphs, pair, x - 11, 138,
-                  palette[7 if pair == "eu" else 6], 2)
-    for x, y in ((78, 129), (82, 129), (79, 130), (81, 130), (80, 131)):
-        d.point((x, y), fill=palette[10])
+    preview = Image.open(PREVIEW).convert("RGBA").resize((128, 128), Image.Resampling.NEAREST)
+    im.paste(preview, (16, 14))
     d.rectangle((0, 160, 159, 204), fill=palette[2])
     centered_text(d, glyphs, "tweeklanken", 177, palette[7], 1, WIDTH)
     return bytearray(im.tobytes())
 
 
 def write_preview(data):
-    """Keep the editable gameplay thumbnail in step with the cartridge font."""
+    """Show both playable modes on the website and catalogue art."""
     from PIL import Image, ImageDraw
     im = Image.new("RGB", (128, 128), PALETTE_RGB[1])
     d = ImageDraw.Draw(im)
     glyphs = font_glyphs()
-    centered_text(d, glyphs, "tweeklanken", 2, PALETTE_RGB[13], 1, 128)
-    draw_text(d, glyphs, "8", 121, 2, PALETTE_RGB[14])
-    for band in range(8):
-        y = 113 - band * 5
-        d.rectangle((119, y, 124, y + 3),
-                    fill=PALETTE_RGB[(8, 9, 10, 11, 12, 13, 14)[band % 7]])
-    centered_text(d, glyphs, "n__s", 18, PALETTE_RGB[7], 2, 128)
+    centered_text(d, glyphs, "tweeklanken", 3, PALETTE_RGB[13], 1, 128)
+    centered_text(d, glyphs, "kies een spel", 19, PALETTE_RGB[7], 1, 128)
     for sy in range(32):
         for sx in range(32):
             packed = data[sy * 64 + sx // 2]
             color = (packed >> (4 * (sx % 2))) & 15
-            d.point((48 + sx, 43 + sy), fill=PALETTE_RGB[color])
-    for x, pair in ((26, "oe"), (64, "eu"), (102, "ei")):
-        draw_text(d, glyphs, pair, x - 11, 96,
-                  PALETTE_RGB[7 if pair == "eu" else 6], 2)
-    for x, y in ((62, 89), (66, 89), (63, 90), (65, 90), (64, 91)):
+            d.point((16 + sx, 38 + sy), fill=PALETTE_RGB[color])
+    draw_text(d, glyphs, "n__s", 73, 48, PALETTE_RGB[7], 2)
+    draw_text(d, glyphs, "plaatjes", 9, 81, PALETTE_RGB[7])
+    draw_text(d, glyphs, "woorden", 76, 81, PALETTE_RGB[6])
+    for x, y in ((30, 74), (34, 74), (31, 75), (33, 75), (32, 76)):
         d.point((x, y), fill=PALETTE_RGB[10])
-    centered_text(d, glyphs, "a: kies", 119, PALETTE_RGB[6], 1, 128)
+    centered_text(d, glyphs, "a: start", 116, PALETTE_RGB[6], 1, 128)
     im.resize((512, 512), Image.Resampling.NEAREST).save(PREVIEW)
 
 
@@ -191,7 +180,10 @@ def write_artwork():
 
 
 def main():
+    word_count = sync_word_bank()
+    validate_font_coverage()
     data, code = cartridge_data()
+    write_preview(data)
     pixels = label_image(data)
     for index, value in enumerate(data):
         at = index * 4
@@ -200,9 +192,8 @@ def main():
         pixels[at + 2] = (pixels[at + 2] & 252) | (value & 3)
         pixels[at + 3] = (pixels[at + 3] & 252) | ((value >> 6) & 3)
     OUTPUT.write_bytes(png_bytes(pixels, WIDTH, HEIGHT))
-    write_preview(data)
     write_artwork()
-    print(f"Built {OUTPUT} ({len(code)} code bytes)")
+    print(f"Built {OUTPUT} ({len(code)} code bytes, {word_count} word puzzles)")
     print(f"Built matching box and grid artwork in {ARTWORK}")
 
 

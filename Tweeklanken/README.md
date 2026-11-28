@@ -1,24 +1,41 @@
 # Tweeklanken
 
-A PICO-8 picture and spelling game. It starts immediately. The child sees a
-picture and a word with its two-letter sound missing, then chooses one of three
-letter pairs. Left/right moves the small V; A or B checks. A wrong answer gets
-a gentle retry. A correct answer fills the gap, sends a pink heart upward,
-bursts into rainbow sparkles, and then sends three more sparkles jumping up one
-after another. Each success adds a band to the rainbow counter on the right.
-The number above the counter keeps the total score. A rainbow fills after 15
-answers; the next one starts with shifted colors.
+A PICO-8 reading game with two modes. The menu starts on **plaatjes**, the
+original picture game. **Woorden** hides the picture and uses the word itself
+as the clue. The first eight exercises use three-letter words and two answer
+pairs. Starting with exercise nine, it draws from all word lengths, including
+the three-letter words, and shows three pairs. Its patterns come from
+`tweeklank-woordenlijst.md`, with
+the eight pairs `au`, `eu`, `ou`, `oe`, `ei`, `ij`, `ui`, and `ie`. When several
+familiar words fit one pattern, every displayed valid completion is accepted.
+Difficulty words and verb forms are kept out of the choices. If a word appears
+in both columns, the difficulty column takes precedence.
+When a listed word uses `ei`/`ij` or `au`/`ou`, its other spelling is also
+blocked unless that spelling makes a valid word in the same puzzle.
+The `__t` puzzle has only two safe answer pairs, so it appears only during
+the first eight exercises.
+
+Left/right moves the small V. A checks an answer; B returns to the mode menu.
+A wrong answer gets a gentle retry. A correct answer fills the gap, sends a
+pink heart upward, bursts into rainbow sparkles, and then sends three more
+sparkles jumping up one after another. In word mode, the pair glows in changing
+colors and a rainbow underline grows beneath the word. Each success adds a
+band to the rainbow counter: the right side fills after 15 answers, then the
+left side fills over the next 15. Both reset on answer 31. The number above
+the right rainbow keeps the total score.
 
 All game text uses a hand-drawn lowercase pixel font. The missing-letter word
 and the answer pairs use 2× letters; the title and short hints use 1× letters.
-The `j` in `ij` descends two pixels below the other letters' baseline.
+The lowercase `g`, `j`, and `p` descend two pixels below the baseline.
 The build script regenerates the gameplay thumbnail and catalogue artwork from
 the same font and the current sprites.
 
-The 15 pictures use the family's chosen words. The deck shuffles, uses each
-picture once per cycle, and never repeats the same picture immediately between
-cycles. No choice row contains **ij with ei** or **ou with au**, since those
-pairs sound alike and would turn the puzzle into a spelling test.
+The picture mode uses the family's 15 chosen words. Each mode shuffles its own
+bank, uses every picture or pattern once per cycle, and avoids an immediate
+repeat between cycles. No choice row contains **ij with ei** or **ou with au**,
+since those pairs sound alike and would turn the puzzle into a spelling test.
+For word mode, the builder validates the Markdown list and regenerates
+`word_words` in `Tweeklanken.p8`.
 
 ## Words and sprite slots
 
