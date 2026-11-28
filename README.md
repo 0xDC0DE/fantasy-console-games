@@ -1,9 +1,9 @@
 # Fantasy console games
 
-Ten homemade games for children, including eight learning games and two playful
-adventures. The [website](website/README.md) lets friends and teachers play them
-in a browser. This repository also keeps the editable cartridges, build scripts,
-artwork sources, and per-game notes.
+Eleven homemade games for children, including nine learning games and two playful
+adventures. The [website](website/README.md) hosts browser versions of the
+published games. This repository also keeps the editable cartridges, build
+scripts, artwork sources, and per-game notes.
 
 From the Gameboy folder, run `python3 fantasy-console-games/update_game.py --all`
 to rebuild cartridges, launchers, website players, downloads, and artwork.
@@ -12,7 +12,7 @@ for the update and backup workflow.
 
 | Learning games | Just for fun |
 | --- | --- |
-| Color Mix, Count Numbers, Frog Hopper, Heart Path, Math Split, Missing Number, Shape Sum, Stringer | Dino Snacks, Dragon Fury |
+| Color Mix, Count Numbers, Frog Hopper, Heart Path, Math Split, Missing Number, Shape Sum, Stringer, Tweeklanken | Dino Snacks, Dragon Fury |
 
 The PICO-8 games have editable `.p8` cartridges. Dragon Fury uses TIC-80 and has
 an editable `.lua` source plus `.tic` cartridge. The `.tic` files in the other

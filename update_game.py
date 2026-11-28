@@ -17,7 +17,7 @@ GAMES = Path(__file__).resolve().parent
 ROOT = GAMES.parent
 WEB = GAMES / "website" / "public"
 FUN = {"DinoSnacks", "FireDragon"}
-KNOWN = {"ColorMix", "CountNumbers", "DinoSnacks", "FireDragon", "FrogHopper", "HeartPath", "MathSplit", "MissingNumber", "ShapeSum", "Stringer"}
+KNOWN = {"ColorMix", "CountNumbers", "DinoSnacks", "FireDragon", "FrogHopper", "HeartPath", "MathSplit", "MissingNumber", "ShapeSum", "Stringer", "Tweeklanken"}
 SPECIAL = {"FireDragon": ("Dragon Fury", "dragon-fury", "dragon_fury.tic")}
 
 
